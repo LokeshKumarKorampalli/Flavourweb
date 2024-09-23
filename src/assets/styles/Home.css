@@ -1,0 +1,34 @@
+/* Home.css */
+.Home {
+  position: relative;
+}
+
+.main-content {
+  margin-left: 60px; /* Adjust according to your sidebar collapsed width */
+  padding: 2rem;
+  transition: margin-left 0.3s ease;
+  position: relative;
+}
+
+.expanded + .main-content {
+  margin-left: 250px; /* Adjust according to your sidebar expanded width */
+}
+
+/* Profile Icon Container */
+.profile-icon {
+  position: fixed;  /* Fixed position to always stay at the top right */
+  top: 10px;       /* Adjust to align with the top */
+  right: 10px;     /* Adjust to align with the right */
+  z-index: 1001;   /* Ensure it stays above other content */
+}
+
+.profile-image {
+  font-size: 2.5rem; /* Adjust size as needed */
+  color: #333;       /* Adjust color */
+  cursor: pointer;   /* Change cursor to pointer to indicate it's clickable */
+  transition: transform 0.2s ease; /* Add smooth transition */
+}
+
+.profile-image:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}

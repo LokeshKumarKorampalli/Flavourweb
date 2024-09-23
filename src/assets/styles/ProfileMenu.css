@@ -1,0 +1,89 @@
+/* ProfileMenu.css */
+.profile-menu-container {
+    position: fixed; /* Fixed position for the profile picture */
+    top: 10px; /* Adjust this value */
+    right: 10px; /* Adjust this value */
+    z-index: 1001; /* Ensure it's above other content */
+}
+
+.profile-image {
+    font-size: 3rem; /* Slightly larger size for better appearance */
+    color: #333; /* Adjust color */
+    cursor: pointer; /* Indicate that it's clickable */
+    transition: transform 0.2s ease, color 0.2s ease; /* Smooth hover effect */
+}
+
+.profile-image:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    color: #007bff; /* Change color on hover */
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 100%; /* Position dropdown below the profile icon */
+    right: 0;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px; /* Softer, rounded corners */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* Slightly softer shadow */
+    width: 250px; /* Adjust the width */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #333;
+    animation: fadeIn 0.2s ease-in-out; /* Smooth fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-info {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
+}
+
+.profile-name {
+    font-weight: 700; /* Make the name bold */
+    margin: 0;
+    font-size: 1.2rem; /* Slightly larger font size */
+    color: #333;
+}
+
+.profile-email {
+    margin: 5px 0 0 0; /* Add some spacing between name and email */
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.profile-actions {
+    padding: 10px 0;
+    width: 100%;
+}
+
+.profile-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    padding: 8px 0;
+    text-align: left;
+    width: 100%;
+    transition: background-color 0.2s ease, color 0.2s ease; /* Smooth hover effect */
+    font-size: 0.95rem; /* Adjust font size */
+}
+
+.profile-button:hover {
+    background-color: #f8f9fa; /* Subtle background change on hover */
+    color: #0056b3; /* Darker blue on hover */
+    border-radius: 4px; /* Slight rounding for the hover effect */
+}

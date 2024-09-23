@@ -1,23 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-
-*{
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
 
-body{
+html, body {
+    height: 100%;
+}
+
+body {
     background-color: #c9d6ff;
     background: linear-gradient(to right, #e2e2e2, #c9d6ff);
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    height: 100vh;
+    height: 100%;
+    margin: 0;
 }
 
-.container{
+.container {
+    text-align: center;
+    justify-content: center;
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
@@ -26,27 +37,31 @@ body{
     width: 768px;
     max-width: 100%;
     min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.container p{
+.container p {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.3px;
     margin: 20px 0;
 }
 
-.container span{
+.container span {
     font-size: 12px;
 }
 
-.container a{
+.container a {
     color: #333;
     font-size: 13px;
     text-decoration: none;
     margin: 15px 0 10px;
 }
 
-.container button{
+.container button {
     background-color: #148761;
     color: #fff;
     font-size: 12px;
@@ -60,12 +75,12 @@ body{
     cursor: pointer;
 }
 
-.container button.hidden{
+.container button.hidden {
     background-color: transparent;
     border-color: #fff;
 }
 
-.container form{
+.container form {
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -75,7 +90,7 @@ body{
     height: 100%;
 }
 
-.container input{
+.container input {
     background-color: #eee;
     border: none;
     margin: 8px 0;
@@ -86,53 +101,53 @@ body{
     outline: none;
 }
 
-.form-container{
+.form-container {
     position: absolute;
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
 }
 
-.sign-in{
+.sign-in {
     left: 0;
     width: 50%;
     z-index: 2;
 }
 
-.container.active .sign-in{
+.container.active .sign-in {
     transform: translateX(100%);
 }
 
-.sign-up{
+.sign-up {
     left: 0;
     width: 50%;
     opacity: 0;
     z-index: 1;
 }
 
-.container.active .sign-up{
+.container.active .sign-up {
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
     animation: move 0.6s;
 }
 
-@keyframes move{
-    0%, 49.99%{
+@keyframes move {
+    0%, 49.99% {
         opacity: 0;
         z-index: 1;
     }
-    50%, 100%{
+    50%, 100% {
         opacity: 1;
         z-index: 5;
     }
 }
 
-.social-icons{
+.social-icons {
     margin: 20px 0;
 }
 
-.social-icons a{
+.social-icons a {
     border: 1px solid #ccc;
     border-radius: 20%;
     display: inline-flex;
@@ -143,7 +158,7 @@ body{
     height: 40px;
 }
 
-.toggle-container{
+.toggle-container {
     position: absolute;
     top: 0;
     left: 50%;
@@ -155,16 +170,16 @@ body{
     z-index: 1000;
 }
 
-.container.active .toggle-container{
+.container.active .toggle-container {
     transform: translateX(-100%);
     border-radius: 0 150px 100px 0;
 }
 
-.toggle{
+.toggle {
     background-color: #2da83b;
     height: 100%;
     background: linear-gradient(to right, #fffefd, #ffffff);
-    background: linear-gradient(to left,  #ffffff, #fffffd);
+    background: linear-gradient(to left, #ffffff, #fffffd);
     color: #fff;
     position: relative;
     left: -100%;
@@ -174,10 +189,9 @@ body{
     transition: all 0.6s ease-in-out;
 }
 
-.container.active .toggle{
+.container.active .toggle {
     transform: translateX(50%);
 }
-
 
 .toggle-panel {
     position: absolute;
@@ -192,13 +206,13 @@ body{
     top: 0;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
     color: #fff;
 }
 
 .toggle-left {
-    background-image: url('../images/logo.jpg'); 
+    background-image: url('../images/logo.jpg');
     transform: translateX(-200%);
     align-items: center;
 }
@@ -208,7 +222,7 @@ body{
 }
 
 .toggle-right {
-    background-image: url('../images/logo.jpg'); 
+    background-image: url('../images/logo.jpg');
     right: 0;
     transform: translateX(0);
     align-self: center;
