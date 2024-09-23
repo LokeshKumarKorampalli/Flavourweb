@@ -17,7 +17,7 @@ const Profile = () => {
   return (
     <div className="profile-container">
       <Sidebar />
-      <ProfileMenu />
+      {/* <ProfileMenu /> */}
       <h1>Profile Details</h1>
       <div className="profile-details">
         <p><strong>Name:</strong> {user.name}</p>
