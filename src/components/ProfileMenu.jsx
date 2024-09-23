@@ -1,18 +1,24 @@
 // src/components/ProfileMenu.jsx
 import React, { useState } from 'react';
-import { FaUserCircle } from 'react-icons/fa'; // Import profile icon
-import '../assets/styles/ProfileMenu.css'; // Import the ProfileMenu CSS
+import { FaUserCircle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import '../assets/styles/ProfileMenu.css';
 
 const ProfileMenu = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate for navigation
 
-  // Functions to handle hover events
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
+  };
+
+  // Handle the Account Settings click
+  const handleAccountSettings = () => {
+    navigate('/profile'); // Navigate to /profile
   };
 
   return (
@@ -31,7 +37,7 @@ const ProfileMenu = () => {
             <p className="profile-email">john.doe@example.com</p>
           </div>
           <div className="profile-actions">
-            <button className="profile-button">Account Settings</button>
+            <button className="profile-button" onClick={handleAccountSettings}>Account Settings</button>
             <button className="profile-button">Logout</button>
           </div>
         </div>

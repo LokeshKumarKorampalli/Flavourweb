@@ -1,37 +1,33 @@
+// src/components/Profile.jsx
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../assets/styles/Profile.css';
+import '../assets/styles/Profile.css'; // Make sure you have a CSS file for styling
+import Sidebar from './Sidebar'; // Import the Sidebar
+import ProfileMenu from './ProfileMenu';
 
-function Profile() {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    // Perform any logout logic here (e.g., clearing tokens, user data)
-    navigate('/login'); // Redirect to the login page
+const Profile = () => {
+  // Assume these details would be fetched from an API or context in a real application
+  const user = {
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    address: '1234 React Street, Redux City, JS 12345',
+    phone: '123-456-7890',
+    bio: 'A passionate developer who loves React!'
   };
 
   return (
     <div className="profile-container">
-      <div className="profile-header">
-        <img src="path/to/profile-pic.jpg" alt="Profile" className="profile-pic" />
-        <h1 className="profile-name">John Doe</h1>
-        <p className="profile-bio">
-          A brief bio about John Doe. Passionate about web development, design, and technology.
-        </p>
-      </div>
+      <Sidebar />
+      <ProfileMenu />
+      <h1>Profile Details</h1>
       <div className="profile-details">
-        <h2>Contact Information</h2>
-        <p>Email: johndoe@example.com</p>
-        <p>Phone: +123 456 7890</p>
-        <h2>Follow Me</h2>
-        <div className="social-links">
-          <a href="https://twitter.com/johndoe" target="_blank" rel="noopener noreferrer">Twitter</a>
-          <a href="https://linkedin.com/in/johndoe" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
-        <button className="logout-button" onClick={handleLogout}>Logout</button> {/* Add this line */}
+        <p><strong>Name:</strong> {user.name}</p>
+        <p><strong>Email:</strong> {user.email}</p>
+        <p><strong>Address:</strong> {user.address}</p>
+        <p><strong>Phone:</strong> {user.phone}</p>
+        <p><strong>Bio:</strong> {user.bio}</p>
       </div>
     </div>
   );
-}
+};
 
 export default Profile;
