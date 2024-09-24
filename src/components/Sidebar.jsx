@@ -1,66 +1,93 @@
-// Sidebar.jsx
+// src/components/Sidebar.jsx
 import React, { useState } from 'react';
-import { FaHome, FaServicestack, FaInfoCircle, FaPhone } from 'react-icons/fa'; // Import icons from react-icons
 import '../assets/styles/Sidebar.css';
-import logo from '../assets/images/profilepic.jpeg'; // Import your logo image
+import logo from '../assets/images/profilepic.jpeg';
+import { FaHome, FaInfoCircle, FaPhone, FaBars, FaChevronRight } from 'react-icons/fa';
+import { BiSolidFoodMenu } from "react-icons/bi";
+import { GiMeal } from "react-icons/gi";
 
 const Sidebar = () => {
-    const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isSubmenuVisible, setIsSubmenuVisible] = useState(false); // State for controlling submenu visibility
 
-    const handleMouseEnter = () => {
-        setIsExpanded(true);
-    };
+  const toggleSidebar = () => {
+    setIsExpanded(!isExpanded);
+  };
 
-    const handleMouseLeave = () => {
-        setIsExpanded(false);
-    };
+  // Handle hover to show/hide submenu
+  const handleMouseEnter = () => {
+    setIsSubmenuVisible(true);
+  };
 
-    return (
-        <div 
-            className={`sidebar ${isExpanded ? 'expanded' : 'collapsed'}`} 
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-        >
-            <div className="sidebar-brand">
-                <a href="/home" className="brand-logo">
-                    <img src={logo} alt="MyLogo" className="logo-image" />
+  const handleMouseLeave = () => {
+    setIsSubmenuVisible(false);
+  };
+
+  return (
+    <div className={`sidebar ${isExpanded ? 'expanded' : 'collapsed'}`}>
+        <button className="menu-toggle" onClick={toggleSidebar}>
+            <FaBars />
+        </button>
+
+        <ul className="nav">
+            <li className="nav-item">
+                <a className="nav-link active" href="/home">
+                    <FaHome className="nav-icon" /> 
+                    {isExpanded && <span className="nav-text">Home</span>}
                 </a>
-            </div>
-            <ul className="nav">
-                <li className="nav-item">
-                    <a className="nav-link active" href="#">
-                        <FaHome className="nav-icon" /> {/* Icon */}
-                        {isExpanded && <span className="nav-text">Home</span>} {/* Display text only if expanded */}
-                    </a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">
-                        <FaServicestack className="nav-icon" /> {/* Icon */}
-                        {isExpanded && <span className="nav-text">Services</span>} {/* Display text only if expanded */}
-                    </a>
+            </li>
+            <li className="nav-item" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                <a className="nav-link" href="/recipe">
+                    <BiSolidFoodMenu className="nav-icon" /> 
                     {isExpanded && (
-                        <ul className="dropdown-menu">
-                            <li><a href="#" className="dropdown-item">Service 1</a></li>
-                            <li><a href="#" className="dropdown-item">Service 2</a></li>
-                            <li><a href="#" className="dropdown-item">Service 3</a></li>
-                        </ul>
+                        <span className="nav-text">
+                            Recipe Generator
+                            <FaChevronRight className="arrow-icon" />
+                        </span>
                     )}
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">
-                        <FaInfoCircle className="nav-icon" /> {/* Icon */}
-                        {isExpanded && <span className="nav-text">About</span>} {/* Display text only if expanded */}
-                    </a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">
-                        <FaPhone className="nav-icon" /> {/* Icon */}
-                        {isExpanded && <span className="nav-text">Contact</span>} {/* Display text only if expanded */}
-                    </a>
-                </li>
-            </ul>
+                </a>
+                {isExpanded && isSubmenuVisible && (
+                    <ul className="submenu">
+                        <li className="submenu-item">
+                            <a href="/recipe-to-ingredients">Recipe to Ingredients</a>
+                        </li>
+                        <li className="submenu-item">
+                            <a href="/ingredients-to-recipe">Ingredients to Recipe</a>
+                        </li>
+                    </ul>
+                )}
+            </li>
+            <li className="nav-item">
+                <a className="nav-link" href="/meal">
+                    <GiMeal className="nav-icon" /> 
+                    {isExpanded && (
+                        <span className="nav-text">
+                            Meal Planner
+                            <FaChevronRight className="arrow-icon" />
+                        </span>
+                    )}
+                </a>
+            </li>
+            <li className="nav-item">
+                <a className="nav-link" href="#">
+                    <FaInfoCircle className="nav-icon" /> 
+                    {isExpanded && <span className="nav-text">About</span>}
+                </a>
+            </li>
+            <li className="nav-item">
+                <a className="nav-link" href="#">
+                    <FaPhone className="nav-icon" /> 
+                    {isExpanded && <span className="nav-text">Contact</span>}
+                </a>
+            </li>
+        </ul>
+        <div className="sidebar-brand">
+            <a href="/home" className="brand-logo">
+                <img src={logo} alt="MyLogo" className="logo-image" />
+            </a>
         </div>
-    );
+    </div>
+  );
 };
 
 export default Sidebar;

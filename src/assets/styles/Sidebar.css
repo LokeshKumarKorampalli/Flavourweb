@@ -17,54 +17,69 @@ body, html {
 
 .sidebar {
     background-color: #333;
-    height: 100vh; /* Full height of the viewport */
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
     color: #fff;
-    transition: width 0.3s ease; /* Smooth transition for collapsing */
-    overflow: hidden; /* Hide overflow content */
+    transition: width 0.3s ease;
+    overflow: hidden;
 }
 
 .sidebar.collapsed {
-    width: 60px; /* Adjust this width for the collapsed state */
+    width: 60px;
 }
 
 .sidebar.expanded {
-    width: 250px; /* Adjust this width for the expanded state */
+    width: 250px;
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, left 0.3s ease;
+    z-index: 1100;
+    outline: none;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.05);
 }
 
 .sidebar-brand {
+    margin-top: auto;
+    padding: 1rem 0;
+    width: 100%; 
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    margin-bottom: 1rem;
 }
 
 .logo-image {
-    height: 40px; /* Default height */
+    height: 40px;
     width: auto;  
     display: block; 
-    transition: height 0.3s ease, transform 0.2s ease; /* Smooth transition for logo resizing */
+    transition: height 0.3s ease, transform 0.2s ease;
 }
 
 .sidebar.expanded .logo-image {
-    height: 60px; /* Increased height when sidebar is expanded */
+    height: 60px; 
 }
 
 .sidebar.expanded .logo-image:hover {
-    transform: scale(1.15); /* Slightly enlarge on hover when sidebar is expanded */
-}
-
-/* Collapsed state hover effect */
-.sidebar.collapsed .logo-image:hover {
-    transform: scale(1.1); /* Slightly increase the logo size on hover when collapsed */
+    transform: scale(1.1); 
 }
 
 .nav {
@@ -72,9 +87,9 @@ body, html {
     flex-direction: column;
     list-style: none;
     margin: 0;
-    padding: 0;
-    width: 100%; /* Make nav items take full width */
-    overflow: hidden; /* Hide overflow content */
+    padding: 30px 0 0 0;
+    width: 100%;
+    overflow: hidden;
 }
 
 .nav-item {
@@ -87,65 +102,87 @@ body, html {
     text-decoration: none;
     padding: 1rem;
     display: flex;
-    align-items: center; /* Align icon and text */
+    align-items: center;
     justify-content: start; 
-    width: 100%; /* Full width clickable */
+    width: 100%;
     transition: background-color 0.3s ease-in-out;
-    white-space: nowrap; /* Prevent text from wrapping */
+    white-space: nowrap;
+    outline: none;
+    transition: transform 0.2s ease;
 }
 
 .nav-link:hover {
     background-color: #007bff;
+    transform: scale(1.03);
 }
 
 .nav-icon {
-    margin-right: 1rem; /* Space between icon and text */
-    font-size: 1.2rem; /* Adjust icon size */
+    margin-right: 1rem;
+    font-size: 1.5rem; 
+    min-width: 24px;
+    transition: transform 0.2s ease;
 }
 
 .nav-text {
-    transition: opacity 0.3s ease;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    left: 100%;
-    top: 0;
+.arrow-icon {
+    margin-left: auto;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+    color: #fff;
+}
+
+.submenu {
     background-color: #444;
     list-style: none;
     padding: 0;
+    margin: 5px 0 0 0;
+    position: absolute;
+    top: 100%; 
+    left: 100%;
+    width: 200px;
     border-radius: 4px;
-    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999; 
+    display: none; /* Initially hidden */
 }
 
-.dropdown-item {
+.nav-item:hover .submenu {
+    display: block; /* Display submenu on hover */
+}
+
+.submenu-item {
     padding: 0.5rem 1rem;
+}
+
+.submenu-item a {
     text-decoration: none;
     color: #fff;
     display: block;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease;
 }
 
-.dropdown-item:hover {
-    background-color: #555;
-}
-
-.nav-item:hover .dropdown-menu {
-    display: block;
+.submenu-item a:hover {
+    background-color: #007bff;
 }
 
 .main-content {
-    margin-left: 60px; /* Adjust this margin according to the collapsed width */
+    margin-left: 60px;
     padding: 2rem;
-    transition: margin-left 0.3s ease; /* Smooth transition for main content */
+    transition: margin-left 0.3s ease;
 }
 
 .expanded + .main-content {
-    margin-left: 250px; /* Adjust this margin according to the expanded width */
+    margin-left: 250px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .sidebar {
         width: 200px; 
@@ -156,10 +193,14 @@ body, html {
     }
 
     .sidebar.collapsed {
-        width: 60px; /* Collapsed state width for mobile */
+        width: 60px;
     }
 
     .sidebar.expanded {
-        width: 250px; /* Expanded state width for mobile */
+        width: 250px;
+    }
+
+    .menu-toggle.expanded {
+        left: 210px;
     }
 }
