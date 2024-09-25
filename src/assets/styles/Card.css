@@ -1,0 +1,28 @@
+/* Card.css */
+.card {
+  background-color: #fff;
+  padding: 15px; /* Reduced padding */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  text-align: center;
+  width: 160px; /* Reduced width */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+  margin: 10px 0;
+  font-size: 1.2rem; /* Adjusted font size */
+  color: #007bff;
+}
+
+.card p {
+  font-size: 0.9rem; /* Adjusted font size */
+  color: #333;
+}

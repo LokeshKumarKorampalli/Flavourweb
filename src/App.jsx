@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Container from './components/Container';
+import MealToRecipe from './components/MealToRecipe';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/container" element={<Container />} />
+        <Route path="/meal-to-recipe" element={<MealToRecipe />} />
       </Routes>
     </div>
   );
