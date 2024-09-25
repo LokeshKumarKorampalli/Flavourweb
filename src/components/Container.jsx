@@ -16,13 +16,13 @@ const Container = () => {
             <div className="toggle-container">
                 <div className="toggle">
                     <div className="toggle-panel toggle-left">
-                        <h1>Welcome Back!</h1>
-                        <p>To keep connected with us please login with your personal info</p>
+                        <h1 className="text-shadow">Welcome Back!</h1>
+                        <p className="text-shadow">To keep connected with us please login with your personal info</p>
                         <button className="hidden" onClick={toggle} id="login">Sign In</button>
                     </div>
                     <div className="toggle-panel toggle-right">
-                        <h1>Hello, Friend!</h1>
-                        <p>Enter your personal details and start your journey with us</p>
+                    <h1 className="text-shadow">Hello, Friend!</h1>
+                    <p className="text-shadow">Enter your personal details and start your journey with us</p> {/* Outlined text */}
                         <button className="hidden" onClick={toggle} id="register">Sign Up</button>
                     </div>
                 </div>

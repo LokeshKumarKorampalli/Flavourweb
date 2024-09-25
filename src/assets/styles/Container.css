@@ -17,8 +17,8 @@ html, body {
 }
 
 body {
-    background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    background-color: #c9fff0;
+    background: linear-gradient(to right, #e2e2e2, #c9ffd8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,6 +41,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+}
+.text-shadow {
+    text-shadow: 2px 2px #000000;
 }
 
 .container p {
@@ -76,8 +80,24 @@ body {
 }
 
 .container button.hidden {
-    background-color: transparent;
-    border-color: #fff;
+    background-color: rgba(22, 212, 149, 0.5); /* Light translucent green background */
+    color: #ffffff; /* Keep the text color matching */
+    border-color: #148761; /* Ensure the border matches */
+    padding: 10px 45px;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Adding hover effect for better interactivity */
+.container button.hidden:hover {
+    background-color: rgba(20, 135, 97, 0.9); /* Slightly darker translucent green on hover */
+    color: #fff; /* Change text color on hover */
+    border-color: #106b50; /* Darken the border on hover */
 }
 
 .container form {
@@ -230,4 +250,77 @@ body {
 
 .container.active .toggle-right {
     transform: translateX(200%);
+}
+
+/* Include this in your existing CSS file */
+
+/* Styling for the container around the password input and eye icon */
+.password-input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px; /* Add spacing below the password field */
+}
+
+.password-input-container input {
+    background-color: #eee;
+    border: none;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    transition: background-color 0.2s ease;
+    padding-right: 35px; /* Ensure space for the eye icon */
+}
+
+.password-input-container input:focus {
+    background-color: #e0e0e0; /* Slight change on focus */
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+    transition: color 0.2s ease;
+}
+
+.eye-icon:hover {
+    color: #333;
+}
+
+/* Style for the 'Forgot Password?' link */
+.container a {
+    color: #007bff; /* Change to a more visible blue */
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.container a:hover {
+    color: #0056b3; /* Darken color on hover */
+}
+
+/* Adjust button styles to align with form elements */
+.container button {
+    background-color: #148761;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container button:hover {
+    background-color: #106b50; /* Darken the button on hover */
 }

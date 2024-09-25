@@ -4,6 +4,7 @@ import { auth, db } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { validateEmail, handleFirebaseError } from '../utils/validationUtils'; // Import utility functions
+import '../assets/styles/Container.css'; // Make sure this path is accurate
 
 const SignUp = ({ toggle }) => {
     const [name, setName] = useState('');
@@ -72,7 +73,7 @@ const SignUp = ({ toggle }) => {
         <div className="form-container sign-up">
             <form onSubmit={handleRegister}>
                 <h1>Create Account</h1>
-                <span>or use your email for registration</span>
+                
                 <input 
                     type="text" 
                     placeholder="Name" 

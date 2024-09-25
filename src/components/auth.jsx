@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SignIn from './Signin'; // Import from components
 import SignUp from './Signup'; // Import from components
+import '../assets/styles/Container.css'; // Make sure this path is accurate
 
 const Auth = () => {
     const [isSignIn, setIsSignIn] = useState(true);
@@ -16,4 +17,4 @@ const Auth = () => {
     );
 };
 
-export default Auth;
+export default Auth;

@@ -21,6 +21,13 @@ const ProfileMenu = () => {
     navigate('/profile'); // Navigate to /profile
   };
 
+  // Handle the Logout click
+  const handleLogout = () => {
+    // Clear any authentication tokens or user data if stored
+    localStorage.removeItem('authToken'); // Example: remove auth token from local storage
+    navigate('/'); // Redirect to the login page
+  };
+
   return (
     <div 
       className="profile-menu-container" 
@@ -38,7 +45,7 @@ const ProfileMenu = () => {
           </div>
           <div className="profile-actions">
             <button className="profile-button" onClick={handleAccountSettings}>Account Settings</button>
-            <button className="profile-button">Logout</button>
+            <button className="profile-button" onClick={handleLogout}>Logout</button>
           </div>
         </div>
       )}

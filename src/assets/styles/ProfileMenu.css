@@ -1,4 +1,6 @@
 /* ProfileMenu.css */
+
+/* Container for the profile menu */
 .profile-menu-container {
     position: fixed; /* Fixed position for the profile picture */
     top: 10px; /* Adjust this value */
@@ -6,6 +8,7 @@
     z-index: 1001; /* Ensure it's above other content */
 }
 
+/* Profile icon styling */
 .profile-image {
     font-size: 3rem; /* Slightly larger size for better appearance */
     color: #333; /* Adjust color */
@@ -18,6 +21,7 @@
     color: #007bff; /* Change color on hover */
 }
 
+/* Dropdown menu styling */
 .profile-dropdown {
     position: absolute;
     top: 100%; /* Position dropdown below the profile icon */
@@ -32,9 +36,11 @@
     flex-direction: column;
     align-items: flex-start;
     color: #333;
-    animation: fadeIn 0.2s ease-in-out; /* Smooth fade-in animation */
+    animation: fadeIn 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smooth fade-in animation */
+    z-index: 1002; /* Ensures it's above the profile image */
 }
 
+/* Fade-in animation for dropdown */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -46,6 +52,7 @@
     }
 }
 
+/* Profile information section within the dropdown */
 .profile-info {
     padding-bottom: 10px;
     border-bottom: 1px solid #e0e0e0;
@@ -65,11 +72,13 @@
     color: #777;
 }
 
+/* Profile actions container */
 .profile-actions {
     padding: 10px 0;
     width: 100%;
 }
 
+/* Styling for buttons in the profile dropdown */
 .profile-button {
     background: none;
     border: none;
@@ -80,6 +89,7 @@
     width: 100%;
     transition: background-color 0.2s ease, color 0.2s ease; /* Smooth hover effect */
     font-size: 0.95rem; /* Adjust font size */
+    outline: none; /* Remove outline */
 }
 
 .profile-button:hover {
