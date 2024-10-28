@@ -1,0 +1,101 @@
+.RecipeDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.RecipeDetails .main-content {
+  margin-top: 1200px; /* Adjusted for the top bar */
+  padding: 20px;
+  width: 80%;
+  max-width: 1200px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative; /* Ensure the back button is placed relative to this */
+}
+
+.RecipeDetails .recipe-card {
+  position: relative;
+}
+
+.RecipeDetails .back-button {
+  position: absolute;
+  top: 10px;  /* Adjust as needed */
+  left: 10px;
+  background-color: transparent;
+  color: #148761;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.RecipeDetails .back-button:hover {
+  text-decoration: underline;
+  color: #106b50;
+}
+
+.RecipeDetails h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.RecipeDetails .recipe-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.RecipeDetails h2 {
+  font-size: 1.5rem;
+  margin: 20px 0;
+  color: #555;
+}
+
+.RecipeDetails .ingredient-list {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.RecipeDetails .ingredient-list li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.RecipeDetails .ingredient-list li:last-child {
+  border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .RecipeDetails .main-content {
+    width: 95%;
+  }
+
+  .RecipeDetails h1 {
+    font-size: 1.8rem;
+  }
+
+  .RecipeDetails h2 {
+    font-size: 1.3rem;
+  }
+
+  .RecipeDetails .ingredient-list li {
+    padding: 8px;
+  }
+
+  .RecipeDetails .back-button {
+    left: 10px; /* Adjust for smaller screens */
+  }
+}

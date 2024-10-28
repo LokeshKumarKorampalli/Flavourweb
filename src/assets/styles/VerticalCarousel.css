@@ -1,0 +1,60 @@
+/* VerticalCarousel.css */
+.vertical-carousel {
+    flex-grow: 1;
+    position: relative;
+    height: 100vh; 
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-top: 60px; /* Offset the top bar height */
+    width: 100%; /* Ensure the carousel takes up the full width */
+    scroll-snap-type: y mandatory; /* Snap to each card when scrolling */
+  }
+  
+  .carousel-container {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Ensure the container spans the full width */
+  }
+  
+  .carousel-card {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f0f0f0; 
+    text-align: center;
+    scroll-snap-align: start; 
+    width: 100%; /* Ensure the card spans full width */
+    box-sizing: border-box; /* Ensure padding doesn’t affect the width */
+  }
+  
+  .carousel-card h1 {
+    margin: 0;
+    font-size: 3rem;
+    color: #333;
+  }
+  
+  .carousel-card p {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .card-button {
+    padding: 10px 20px;
+    background-color: #148761;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .card-button:hover {
+    background-color: #106b50;
+  }
+  
